@@ -8,6 +8,7 @@ import Link from "next/link";
 
 const Blog = () => {
   const { data, isLoading } = useGetBlogsQuery(undefined);
+  console.log(data)
 
 
   if (isLoading) {
@@ -32,7 +33,11 @@ const Blog = () => {
             />
             </div>
             <h2 className="text-xl dark:text-white font-semibold mt-4">{blog.title}</h2>
-            <p className="text-gray-300 mt-2">{blog.content.slice(0, 100)}...</p>
+            <div
+              className="text-gray-300 mt-2"
+              dangerouslySetInnerHTML={{ __html: blog.content.slice(0, 100) + "..." }}
+            >
+              </div>
             <p className="text-sm text-gray-400 mt-2">
               By {blog.author} | {new Date(blog.createdAt).toLocaleDateString()}
             </p>

@@ -8,7 +8,7 @@ import httpStatus from 'http-status'
 
 
 const app: Application = express()
-app.use(cors({origin:"https://eid-portfolio.vercel.app/", credentials: true}))
+app.use(cors({origin:"http://localhost:3000", credentials: true}))
 app.use(express.json())
 app.use(cookieParser())
 app.use('/api/',router )
