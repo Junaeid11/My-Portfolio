@@ -54,16 +54,14 @@ const Navbar = () => {
           <Image src={logo} alt="NoobWork Logo" width={40} height={40} className="rounded-full" />
           <span className="text-white font-bold text-lg tracking-wide">NoobWork</span>
         </Link>
-
-        {/* Desktop Nav */}
         <ul className="hidden md:flex items-center space-x-6">
           {navLinks.map(({ href, label }) => (
             <li key={href}>
               <Link
                 href={href}
-                className={`relative font-medium text-sm px-3 py-1 transition-all duration-200 ${
+                className={`relative  text-l px-3 py-1 transition-all duration-200 ${
                   pathname === href
-                    ? "text-blue-400"
+                    ? "text-blue-500  font-extrabold"
                     : "text-white hover:text-blue-300"
                 }`}
               >
@@ -72,8 +70,6 @@ const Navbar = () => {
             </li>
           ))}
         </ul>
-
-        {/* Desktop Auth */}
         <div className="hidden md:block">
           {session || token ? (
             <button
@@ -91,14 +87,10 @@ const Navbar = () => {
             </Link>
           )}
         </div>
-
-        {/* Mobile Menu Button */}
         <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-white">
           {isOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
-
-      {/* Mobile Dropdown */}
       {isOpen && (
         <div className="md:hidden bg-[#111111] bg-opacity-90 backdrop-blur-md rounded-b-2xl p-5 flex flex-col items-center space-y-4 text-white">
           {navLinks.map(({ href, label }) => (

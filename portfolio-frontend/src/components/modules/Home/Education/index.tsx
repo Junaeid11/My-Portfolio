@@ -7,11 +7,22 @@ import { FaGraduationCap, FaBook } from "react-icons/fa";
 
 const MyEducation = () => {
   useEffect(() => {
+    // Initialize AOS after the DOM is ready
     AOS.init({
       duration: 600,
       once: true,
       easing: "ease-in-out",
     });
+
+    // Update AOS on resize and scroll (to ensure it works during scrolling)
+    window.addEventListener("resize", AOS.refresh);
+    window.addEventListener("scroll", AOS.refresh);
+
+    // Clean up event listeners on component unmount
+    return () => {
+      window.removeEventListener("resize", AOS.refresh);
+      window.removeEventListener("scroll", AOS.refresh);
+    };
   }, []);
 
   const educationData = [
