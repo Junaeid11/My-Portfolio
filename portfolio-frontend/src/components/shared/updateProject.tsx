@@ -73,7 +73,7 @@ export default function UpdateProjectForm({ project }: { project: Project }) {
             <h1 className="text-xl text-center font-semibold mb-2 text-violet-500">Update Project</h1>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)}>
-                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                    <div className="grid text-black grid-cols-1 gap-4 md:grid-cols-2">
                         {[
                             { name: "name", label: "Project Name" },
                             { name: "description", label: "Description" },

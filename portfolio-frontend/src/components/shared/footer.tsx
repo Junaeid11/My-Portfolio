@@ -3,15 +3,16 @@ import { Facebook, Github, Linkedin, Twitter, Instagram } from "lucide-react"; /
 
 const Footer = () => {
     return (
-        <footer className="flex mx-auto mt-10 pt-10 h-full text-white bg-slate-200 dark:bg-black shadow-lg dark:text-white flex-col space-y-10 justify-center py-5">
+        <footer className="flex mx-auto mt-10 pt-10 h-full text-white bg-white/10 dark:bg-black/80 backdrop-blur-md shadow-lg dark:text-white flex-col space-y-10 justify-center py-5 relative z-10">
+
             <div className="flex place-content-center">
 
-                <h1 className="text-black dark:text-white text-center font-extrabold text-3xl">Noob Work</h1>
+                <h1 className="text-white dark:text-white text-center font-extrabold text-3xl">Noob Work</h1>
             </div>
 
             <nav className="flex justify-center flex-wrap gap-6 text-gray-500 font-medium">
                 <Link href="/" className="hover:text-gray-900">Home</Link>
-                <Link href="/projects" className="hover:text-gray-900">Projects</Link>
+                <Link href="/projects" className="hover:text-red-400">Projects</Link>
                 <Link href="/blog" className="hover:text-gray-900">Blog</Link>
                 <Link href="/contact" className="hover:text-gray-900">Contact</Link>
             </nav>

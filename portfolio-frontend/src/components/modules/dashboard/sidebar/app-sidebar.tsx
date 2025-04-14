@@ -26,40 +26,30 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard, isActive: true },
     {
       title: "Projects", url: `/dashboard/projects`, icon: FolderPlus, items: [
-        {
-          title: "Create Project",
-          url: `/dashboard/add-project`,
-        },
+        { title: "Create Project", url: `/dashboard/add-project` },
       ]
     },
     {
       title: "Blogs", url: `/dashboard/all-blogs`, icon: BookOpen, items: [
-        {
-          title: "Create Blog",
-          url: `/dashboard/blog`,
-        },
+        { title: "Create Blog", url: `/dashboard/blog` },
       ]
     },
-    { title: "Skills", url: "/dashboard/skill", icon: FileText, items: [
-      {
-        title: "Add Skill",
-        url: `/dashboard/add-skills`,
-      },
-    ] },
+    {
+      title: "Skills", url: "/dashboard/skill", icon: FileText, items: [
+        { title: "Add Skill", url: `/dashboard/add-skills` },
+      ]
+    },
     { title: "Messages", url: "/dashboard/messages", icon: MessageCircle },
   ];
 
   return (
-    <Sidebar collapsible="icon" {...props}>
+    <Sidebar className="bg-transparent" collapsible="icon" {...props}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <Link href="/">
-                <div className="flex bg-white items-center justify-center">
-                  <video autoPlay loop muted playsInline className="pl-3 pr-1 w-12 h-10">
-                    <source src="https://cdn-icons-mp4.flaticon.com/512/15586/15586068.mp4" type="video/mp4" />
-                  </video>
+                <div className="flex  items-center justify-center">
                   <span className="text-xl font-bold">NoobWork</span>
                 </div>
               </Link>
@@ -70,7 +60,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent>
         <NavMain items={data} />
       </SidebarContent>
-      <SidebarFooter></SidebarFooter>
+      <SidebarFooter />
     </Sidebar>
   );
 }

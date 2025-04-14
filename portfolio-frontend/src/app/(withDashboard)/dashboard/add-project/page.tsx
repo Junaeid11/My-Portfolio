@@ -11,7 +11,7 @@ import { addProject } from "@/service/Projects";
 
 const CreateProject = () => {
   const { register, handleSubmit, reset } = useForm<Project>();
-  const [imageFiles, setImageFiles] = useState<File[]>([]);
+  const [imageFiles, setImageFiles, ] = useState<File[]>([]);
   const [imagePreview, setImagePreview] = useState<string[]>([]);
 
   const onSubmit = async (data: Project & { technologies: string | string[] } & {challenges: string | string[]}) => {
@@ -41,7 +41,7 @@ const CreateProject = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen my-2">
-      <div className="w-full max-w-4xl bg-white dark:bg-gray-900 shadow-lg rounded-lg p-6">
+      <div className="w-full max-w-4xl bg-transparent text-black dark:bg-gray-900 shadow-lg rounded-lg p-6">
         <form onSubmit={handleSubmit(onSubmit)}>
           <h2 className="text-2xl font-semibold mb-6 text-red-600 text-center">
             Create Project
@@ -121,7 +121,7 @@ const CreateProject = () => {
             </select>
           </div>
 
-          <button type="submit" className="mt-6 w-full bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-500 transition-all">
+          <button type="submit" className="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-black transition-all">
             Create Project
           </button>
         </form>

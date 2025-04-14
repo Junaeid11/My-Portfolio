@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 // Main TipTap Components & editor Initator
 import { EditorContent, useEditor } from "@tiptap/react";
@@ -11,11 +12,10 @@ import Link from "@tiptap/extension-link";
 // Text Styles & Formating
 import Highlight from "@tiptap/extension-highlight";
 import TextAlign from "@tiptap/extension-text-align";
-import ListItem from "@tiptap/extension-list-item";
 import TextStyle from "@tiptap/extension-text-style";
 import Underline from "@tiptap/extension-underline";
 
-const MenuBar = ({ editor }) => {
+const MenuBar = ({ editor }:any) => {
   const setLink = React.useCallback(() => {
     const previousUrl = editor.getAttributes("link").href;
     const url = window.prompt("URL", previousUrl);
@@ -361,7 +361,7 @@ const MenuBar = ({ editor }) => {
     </div>
   );
 };
-const Editor = ({ content, setContent }) => {
+const Editor = ({ content, setContent }:any) => {
   const editor = useEditor({
     editorProps: {
       attributes: {
@@ -370,7 +370,7 @@ const Editor = ({ content, setContent }) => {
       },
     },
     extensions: [
-      TextStyle.configure({ types: [ListItem.name] }),
+      TextStyle,
       StarterKit.configure({
         bulletList: {
           keepMarks: true,

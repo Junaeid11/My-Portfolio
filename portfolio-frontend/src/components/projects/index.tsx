@@ -23,7 +23,7 @@ const ProjectFeature = () => {
 
   return (
     
-    <div className="grid grid-cols-1 lg:grid-cols-1 gap-6 p-6">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 p-6">
       {projects.map((project, idx) => (
         <ProjectCardHigh key={idx} project={project} />
       ))}

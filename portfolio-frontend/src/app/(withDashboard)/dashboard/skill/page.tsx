@@ -50,7 +50,7 @@ const SkillData = () => {
     <div className="mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">My Skills</h1>
       <div className="overflow-x-auto">
-        <table className="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+        <table className="min-w-full bg-black shadow-md rounded-lg overflow-hidden">
           <thead className="bg-gray-800 text-white">
             <tr>
               <th className="py-2 px-4 text-left">No</th>
@@ -61,7 +61,7 @@ const SkillData = () => {
           </thead>
           <tbody>
             {skills.map((skill, index) => (
-              <tr key={skill._id} className="border-b hover:bg-gray-100">
+              <tr key={skill._id} className="border-b hover:bg-blue-100 hover:text-black">
                 <td className="py-2 px-4">{index + 1}</td>
                 <td className="py-2 px-4">
                   {skill.icon?.length > 0 && (

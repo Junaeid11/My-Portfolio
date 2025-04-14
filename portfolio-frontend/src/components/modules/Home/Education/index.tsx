@@ -46,53 +46,43 @@ const MyEducation = () => {
   ];
 
   return (
-    <div className=" min-h-screen   dark:from-gray-900 dark:to-gray-700 p-10"
-    style={{ backgroundImage: "url('https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTAzL3JtNjA0YmF0Y2gyLWJhY2tncm91bmQtYm0tMDItMDEtYS5qcGc.jpg')",backgroundSize:"cover" ,backgroundRepeat:"no-repeat", }}>
-      <div className="flex items-center justify-center gap-3">
-        <FaGraduationCap className="text-[#FF4081] text-4xl" />
-        <h1 className="text-3xl md:text-4xl text-center font-extrabold text-black dark:text-white">
+    <div className="min-h-[80vh] dark:bg-black p-10">
+      <div className="flex items-center justify-center gap-3 mb-6">
+        <FaGraduationCap className="text-[#1e17ef] text-4xl" />
+        <h1 className="text-3xl md:text-4xl text-center font-extrabold text-[#17a0ef]">
           My Education
         </h1>
       </div>
 
       <div className="container mx-auto px-5 py-10">
-        <div>
-          <h2
-            data-aos="fade-up"
-            className="text-2xl font-semibold text-center text-red-500 pb-6"
-          >
-            Academic Educational Qualification
-          </h2>
-        </div>
+        <h2
+          data-aos="fade-up"
+          className="text-2xl font-semibold text-center text-[#94cae8] pb-6"
+        >
+          Academic Educational Qualification
+        </h2>
 
+        {/* Education Section */}
         <div className="relative">
           {educationData.map((edu, index) => (
             <div
               key={index}
               data-aos="fade-up"
-              className={`flex gap-10 ${
-                edu.align === "right" ? "md:flex-row-reverse" : "md:flex-row"
-              } flex-col-reverse`}
+              className={`flex gap-10 ${edu.align === "right" ? "md:flex-row-reverse" : "md:flex-row"} flex-col-reverse`}
             >
               <div
-                className={`w-full md:w-1/2 bg-white dark:bg-gray-800 p-5 rounded-xl shadow-lg hover:shadow-2xl transition-all ${
-                  edu.align === "left" ? "text-end" : "text-start"
-                }`}
+                className={`w-full md:w-1/2 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 bg-[#1a1a1a] dark:bg-gray-800`}
               >
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                  {edu.title}
-                </h3>
-                <h4 className="text-gray-700 dark:text-gray-400">
-                  {edu.institution}
-                </h4>
-                <p className="text-gray-600 dark:text-gray-300">{edu.duration}</p>
-                <p className="text-gray-600 dark:text-gray-300">
-                  Result: <span className="text-red-500 font-bold">{edu.result}</span>
+                <h3 className="text-xl font-semibold text-[#17a0ef]">{edu.title}</h3>
+                <h4 className="text-gray-400">{edu.institution}</h4>
+                <p className="text-gray-300">{edu.duration}</p>
+                <p className="text-gray-300">
+                  Result: <span className="text-[#17a0ef] font-bold">{edu.result}</span>
                 </p>
               </div>
               <div className="flex flex-col items-center">
-                <FaGraduationCap className="text-red-500 text-2xl" />
-                <div className="h-20 w-[5px] bg-gray-400 dark:bg-gray-600"></div>
+                <FaGraduationCap className="text-[#1b17ef] text-2xl" />
+                <div className="h-20 w-[5px] bg-[#1734ef]"></div>
               </div>
             </div>
           ))}
@@ -102,7 +92,7 @@ const MyEducation = () => {
         <div className="mt-16">
           <h2
             data-aos="fade-up"
-            className="text-2xl font-semibold text-center text-red-500 pb-6"
+            className="text-2xl font-semibold text-center text-[#94cae8] pb-6"
           >
             Courses
           </h2>
@@ -113,26 +103,18 @@ const MyEducation = () => {
             <div
               key={index}
               data-aos="fade-up"
-              className={`flex gap-10 mt-10 ${
-                course.align === "right" ? "md:flex-row-reverse" : "md:flex-row"
-              } flex-col-reverse`}
+              className={`flex gap-10 mt-10 ${course.align === "right" ? "md:flex-row-reverse" : "md:flex-row"} flex-col-reverse`}
             >
               <div
-                className={`w-full md:w-1/2 bg-white dark:bg-gray-800 p-5 rounded-xl shadow-lg hover:shadow-2xl transition-all ${
-                  course.align === "right" ? "text-start" : "text-end"
-                }`}
+                className={`w-full md:w-1/2 bg-[#1a1a1a] dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all transform hover:scale-105`}
               >
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
-                  {course.title}
-                </h3>
-                <h4 className="text-gray-700 dark:text-gray-400">
-                  {course.institution}
-                </h4>
-                <p className="text-gray-600 dark:text-gray-300">{course.duration}</p>
+                <h3 className="text-xl font-semibold text-[#17a0ef]">{course.title}</h3>
+                <h4 className="text-gray-400">{course.institution}</h4>
+                <p className="text-gray-300">{course.duration}</p>
               </div>
               <div className="flex flex-col items-center">
-                <FaBook className="text-red-500 text-2xl" />
-                <div className="h-20 w-[5px] bg-gray-400 dark:bg-gray-600"></div>
+                <FaBook className="text-[#1b17ef] text-2xl" />
+                <div className="h-20 w-[5px] bg-[#1b17ef]"></div>
               </div>
             </div>
           ))}

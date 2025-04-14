@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useCreateBlogMutation } from "@/redux/apis/blogs.slice";
@@ -42,9 +43,9 @@ const CreateBlogs = () => {
 
   return (
     <div className="flex items-center justify-center my-4">
-      <div className="w-full max-w-4xl bg-white shadow-lg rounded-lg p-6">
+      <div className="w-full max-w-4xl text-black shadow-lg rounded-lg p-6">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <h2 className="text-2xl font-semibold mb-6 text-red-600 text-center">
+          <h2 className="text-2xl font-semibold mb-6 text-blue-600 text-center">
             Create Blog
           </h2>
 
@@ -88,8 +89,6 @@ const CreateBlogs = () => {
               placeholder="Paste image URL here"
             />
           </div>
-
-          {/* TipTap Editor */}
           <div>
             <label className="block text-sm font-medium text-gray-700">Content</label>
               <Editor content={editorContent} setContent={setEditorContent} />

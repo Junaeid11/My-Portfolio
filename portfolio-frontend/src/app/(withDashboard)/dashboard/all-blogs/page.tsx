@@ -40,7 +40,10 @@ const ALlBlogs = () => {
             layout="responsive"
           />
           <h3 className="text-xl font-semibold mb-2">{blog.title}</h3>
-          <p className="text-gray-600 text-sm mb-4">{blog.content.substring(0, 100)}...</p>
+          <div
+            className="prose prose-lg max-w-none text-black leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: blog.content.substring(0, 100) }}
+          />
           <div className="flex justify-between items-center">
             <span className="text-xs text-gray-500">Author: {blog.author}</span>
             <span

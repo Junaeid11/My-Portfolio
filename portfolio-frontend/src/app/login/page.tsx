@@ -36,37 +36,37 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="my-10 w-full px-4">
-      <h1 className="text-center text-4xl mb-5 font-bold">
-        Login <span className="text-red-500 dark:text-red-400">Here</span>
-      </h1>
+    <div className="my-10 w-full px-4 bg-transparent min-h-screen flex items-center justify-center">
+      <div className="w-full sm:w-[40%] mx-auto bg-black dark:bg-gray-900 p-8 shadow-xl rounded-lg transform transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+        <h1 className="text-center text-4xl mb-5 font-semibold text-blue-800 dark:text-white">
+          Login <span className="text-white dark:text-red-400">Here</span>
+        </h1>
 
-      <div className="w-full sm:w-[40%] mx-auto bg-white dark:bg-gray-900 p-6 shadow-lg rounded-lg border border-gray-300 dark:border-gray-700">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="mb-6">
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-blue-500 dark:text-gray-300">
               Email
             </label>
             <input
               id="email"
               type="email"
               {...register("email", { required: "Email is required" })}
-              placeholder="Email"
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm sm:text-sm bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white"
+              placeholder="Enter your email"
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm sm:text-sm bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
             {errors.email && <p className="text-red-500 text-xs">{errors.email.message}</p>}
           </div>
 
-          <div className="mb-6">
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+          <div>
+            <label htmlFor="password" className="block text-sm font-medium text-blue-500 dark:text-gray-300">
               Password
             </label>
             <input
               id="password"
               type="password"
               {...register("password", { required: "Password is required" })}
-              placeholder="Password"
-              className="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm sm:text-sm bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white"
+              placeholder="Enter your password"
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 dark:border-gray-700 rounded-md shadow-sm sm:text-sm bg-gray-100 dark:bg-gray-800 text-blue-500 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-700"
             />
             {errors.password && <p className="text-red-500 text-xs">{errors.password.message}</p>}
           </div>
@@ -74,7 +74,7 @@ const LoginPage = () => {
           <div>
             <button
               type="submit"
-              className="w-full border border-red-500 dark:border-red-400 text-red-500 dark:text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-red-400 hover:text-black dark:hover:bg-red-500"
+              className="w-full py-3 px-4 bg-blue-500 dark:bg-blue-600 text-white font-semibold rounded-md shadow-lg hover:bg-blue-400 hover:shadow-2xl transition-all ease-in-out"
             >
               Login
             </button>
@@ -83,45 +83,12 @@ const LoginPage = () => {
 
         <p className="text-center mt-4 text-sm text-gray-600 dark:text-gray-300">
           Don&apos;t have an account?{" "}
-          <Link href="/register" className="text-red-500 dark:text-red-400 hover:underline">
+          <Link href="/register" className="text-blue-500 dark:text-blue-400 hover:underline">
             Create an account
           </Link>
         </p>
 
-        <p className="text-center mt-6 text-sm text-gray-500 dark:text-gray-400">Or Sign Up Using</p>
-
-        <div className="flex justify-center gap-4 mt-4">
-          <button
-            onClick={() =>
-              signIn("google", {
-                callbackUrl: "https://noob-portfolio.vercel.app/dashboard",
-              })
-            }
-            className="flex items-center justify-center w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-full shadow-md hover:bg-gray-200 dark:hover:bg-gray-700"
-          >
-            <Image
-              src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
-              width={30}
-              height={30}
-              alt="Google logo"
-            />
-          </button>
-          <button
-            onClick={() =>
-              signIn("github", {
-                callbackUrl: "https://noob-portfolio.vercel.app/dashboard",
-              })
-            }
-            className="flex items-center justify-center w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-full shadow-md hover:bg-gray-200 dark:hover:bg-gray-700"
-          >
-            <Image
-              src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
-              width={25}
-              height={25}
-              alt="GitHub logo"
-            />
-          </button>
-        </div>
+     
       </div>
       <Toaster richColors />
     </div>

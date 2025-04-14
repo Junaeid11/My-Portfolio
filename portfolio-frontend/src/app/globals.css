@@ -8,11 +8,11 @@
  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 body {
-    @apply bg-white text-black dark:bg-gray-900 dark:text-white;
+    @apply bg-black text-white dark:bg-gray-900 dark:text-white;
     cursor: pointer;
 
   }
-html.light {
+/* html.light {
     background-color: white;
     color: black;
   }
@@ -20,7 +20,7 @@ html.light {
 html.dark {
     background-color: #121212;
     color: white;
-  }
+  } */
   
 
   

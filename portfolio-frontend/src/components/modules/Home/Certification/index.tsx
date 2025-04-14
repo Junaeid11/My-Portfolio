@@ -36,18 +36,16 @@ const CertificateSection = () => {
   ];
 
   return (
-    <section className="text-black  py-20 px-6 md:px-10"
-    style={{ backgroundImage: "url('https://png.pngtree.com/thumb_back/fh260/background/20210324/pngtree-abstract-portfolio-pink-memphis-playful-image_593414.jpg')",backgroundSize:"cover" ,backgroundRepeat:"no-repeat", }}
-    >
+    <section className="relative z-10 py-20 px-6 md:px-10 bg-gradient-to-br bg-transparent">
       <div className="container mx-auto flex flex-col md:flex-row items-center gap-10">
         {/* Left Side - Text */}
         <div className="md:w-1/2 text-center md:text-left">
           <h3 className="text-red-400 text-xl font-bold uppercase">Check Out</h3>
           <h2 className="text-3xl md:text-4xl font-bold mt-2">MY CERTIFICATES</h2>
-          <p className="text-gray-500 mt-4 text-lg">
+          <p className="text-gray-600 mt-4 text-lg">
             I have completed various courses to enhance my skills. Click on the icon to view the certificates.
           </p>
-          <div className="mt-4 flex justify-center md:justify-start">
+          <div className="mt-4 z-10 flex justify-center md:justify-start">
             <Link
               href="https://www.linkedin.com/in/junaeidahmedtanim/"
               rel="noopener noreferrer"
@@ -60,23 +58,23 @@ const CertificateSection = () => {
         </div>
 
         {/* Right Side - Certificates */}
-        <div className="md:w-1/2 bg flex flex-col gap-6 w-full">
+        <div className="md:w-1/2 flex flex-col gap-6 w-full">
           {certificates.map((cert, index) => (
             <div
               key={index}
-              className="bg-white p-4 rounded-lg flex justify-between items-center shadow-lg hover:shadow-xl transition-all"
+              className="bg-white p-5 rounded-xl flex justify-between items-center shadow-md hover:shadow-xl border border-gray-200 transition-all"
             >
               {/* Certificate Text */}
               <div>
-                <h3 className="text-lg font-bold">{cert.title}</h3>
-                <p className="text-red-500 font-semibold">{cert.institution}</p>
+                <h3 className="text-lg font-semibold text-gray-800">{cert.title}</h3>
+                <p className="text-red-500 font-medium">{cert.institution}</p>
                 <p className="text-gray-500 text-sm">{cert.completionDate}</p>
               </div>
               <a
                 href={cert.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-red-400 hover:text-green-300 transition-all"
+                className="text-red-500 hover:text-green-500 transition-all"
               >
                 <Eye size={24} />
               </a>

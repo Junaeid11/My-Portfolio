@@ -9,10 +9,10 @@ import CertificateSection from "@/components/modules/Home/Certification";
 const AboutMe = () => {
   return (
     <div>
-      <div className="flex mb-10 flex-col items-center justify-center min-h-screen px-6 py-12 bg-gray-50 dark:bg-gray-900">
+      <div className="flex mt-10 mb-10 flex-col items-center justify-center min-h-screen px-6 py-12 ">
         {/* Title */}
         <motion.h1
-          className="text-4xl font-extrabold text-center text-gray-900 dark:text-white"
+          className="text-4xl font-extrabold text-center text-white dark:text-white"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -22,7 +22,7 @@ const AboutMe = () => {
 
         {/* Description */}
         <motion.p
-          className="mt-4 text-lg text-gray-600 dark:text-gray-300 text-center max-w-2xl"
+          className="mt-4 text-lg text-gray-600 dark:text-white text-center max-w-2xl"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 1 }}
@@ -34,7 +34,7 @@ const AboutMe = () => {
 
         {/* Skills & Interests */}
         <div className="mt-10 max-w-4xl">
-          <h2 className="text-2xl font-bold text-center text-gray-800 dark:text-gray-200 mb-5">💡 My Expertise & Interests</h2>
+          <h2 className="text-2xl font-bold text-center text-white dark:text-gray-200 mb-5">💡 My Expertise & Interests</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {/* Web Development */}
             <motion.div className="flex items-center gap-4 p-5 bg-white dark:bg-gray-800 rounded-lg shadow-lg" initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.7, duration: 0.8 }}>
