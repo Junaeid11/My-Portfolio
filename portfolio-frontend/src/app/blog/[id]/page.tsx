@@ -4,7 +4,7 @@ const BlogDetailsPage =async ({params}:{
     params:Promise<{id: string}>
 } )=> {
     const {id} = await params
-    const res = await fetch(`http://localhost:3333/api/blogs/${id}`)
+    const res = await fetch(`https://portfolio-backend-psi-one.vercel.app/api/blogs/${id}`)
     const blog = await res.json()
     console.log(blog)
 

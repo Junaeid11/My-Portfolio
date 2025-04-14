@@ -83,13 +83,13 @@ const ProjectDetails = ({ project }: { project: Project }) => {
               className="w-full object-cover rounded-lg"
             />
           </motion.div>
-          <h1 className="relative text-4xl font-extrabold text-gray-800 mt-4 dark:text-gray-200">
+          <h1 className="relative text-4xl font-extrabold text-white mt-6 dark:text-gray-200">
             {project.name}
           </h1>
         </div>
 
         {/* Description */}
-        <p className="text-lg mb-6 text-white dark:text-gray-300">{project.description}</p>
+        <p className="text-lg mb-6 text-white/40 dark:text-gray-300">{project.description}</p>
 
         {/* Project Info */}
         <div className="grid grid-cols-2 gap-6 mb-6">
