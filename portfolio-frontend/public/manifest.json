@@ -1,0 +1,30 @@
+{
+  "name": "Junaeid Ahmed Tanim - Full Stack Developer & Power Engineer",
+  "short_name": "Junaeid Portfolio",
+  "description": "Professional portfolio of Junaeid Ahmed Tanim, showcasing web development projects and expertise",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["technology", "business", "productivity"],
+  "lang": "en",
+  "dir": "ltr"
+} 

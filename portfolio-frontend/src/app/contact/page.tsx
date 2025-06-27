@@ -34,76 +34,70 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen mt-10 flex items-center justify-center px-6 dark:bg-gray-900 bg-transparent">
-    <div className="flex flex-wrap bg-transparent dark:bg-gray-800 rounded-3xl shadow-xl overflow-hidden max-w-5xl w-full z-10 relative">
-      <div className="hidden md:flex flex-col justify-center items-center w-1/2 bg-transparent dark:bg-gray-900 p-10">
-        <FaEnvelopeOpenText className="text-6xl text-white dark:text-gray-300 mb-5" />
-        <h2 className="text-2xl font-bold text-blue-700 dark:text-white text-center">
-          HAVE SOME QUESTIONS?
-        </h2>
-        <p className="text-gray-500 dark:text-gray-400 mt-3 text-center">
-          Feel free to reach out. We will get back to you as soon as possible.
-        </p>
-      </div>
-      <div className="w-full md:w-1/2 p-12 flex justify-center relative z-10">
-        <div className="w-full max-w-md z-10">
-          <form onSubmit={handleSubmit(onSubmit)} className="relative z-10">
-            <div className="mb-5">
-              <label htmlFor="name" className="mb-3 block text-base font-medium dark:text-white text-[#2f2fce]">
+    <div className="mt-10 min-h-screen flex items-center justify-center px-4 bg-gradient-to-br from-slate-100 via-blue-50 to-purple-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+      <div className="w-full max-w-3xl mx-auto rounded-3xl shadow-2xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-md p-0 md:p-10 flex flex-col md:flex-row overflow-hidden border border-slate-200 dark:border-slate-700">
+        {/* Left Side - Info */}
+        <div className="hidden md:flex flex-col justify-center items-center w-1/2 bg-gradient-to-br from-blue-100/60 to-purple-100/60 dark:from-slate-800 dark:to-slate-900 p-8">
+          <FaEnvelopeOpenText className="text-5xl text-blue-500 dark:text-blue-400 mb-4" />
+          <h2 className="text-2xl font-bold text-blue-700 dark:text-white text-center mb-2">
+            Get in Touch
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 text-center text-base">
+            Have a question or want to work together? Fill out the form and I&apos;ll get back to you soon.
+          </p>
+        </div>
+        {/* Right Side - Form */}
+        <div className="w-full md:w-1/2 p-6 md:p-8 flex justify-center items-center bg-white/90 dark:bg-slate-900/90">
+          <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md space-y-6">
+            <div>
+              <label htmlFor="name" className="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-1">
                 Full Name
               </label>
               <input
                 type="text"
                 id="name"
-                placeholder="Full Name"
-                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md z-10"
+                placeholder="Your Name"
+                className="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-800 py-3 px-5 text-base text-slate-700 dark:text-slate-200 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 dark:focus:border-blue-500 dark:focus:ring-blue-900 transition"
                 {...register("name", { required: "Name is required" })}
               />
-              {errors.name && <p className="text-red-500">{errors.name.message}</p>}
+              {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
             </div>
-  
-            <div className="mb-5">
-              <label htmlFor="email" className="mb-3 dark:text-white block text-base font-medium text-[#2f2fce]">
+            <div>
+              <label htmlFor="email" className="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-1">
                 Email Address
               </label>
               <input
                 type="email"
                 id="email"
-                placeholder="example@domain.com"
-                className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md z-10"
+                placeholder="you@email.com"
+                className="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-800 py-3 px-5 text-base text-slate-700 dark:text-slate-200 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 dark:focus:border-blue-500 dark:focus:ring-blue-900 transition"
                 {...register("email", { required: "Email is required" })}
               />
-              {errors.email && <p className="text-red-500">{errors.email.message}</p>}
+              {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>}
             </div>
-  
-            <div className="mb-5">
-              <label htmlFor="message" className="mb-3 dark:text-white block text-base font-medium text-[#2f2fce]">
+            <div>
+              <label htmlFor="message" className="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-1">
                 Message
               </label>
               <textarea
                 rows={4}
                 id="message"
-                placeholder="Type your message"
-                className="w-full resize-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md z-10"
+                placeholder="Type your message..."
+                className="w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-800 py-3 px-5 text-base text-slate-700 dark:text-slate-200 outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-100 dark:focus:border-blue-500 dark:focus:ring-blue-900 transition resize-none"
                 {...register("message", { required: "Message is required" })}
               />
-              {errors.message && <p className="text-red-500">{errors.message.message}</p>}
+              {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>}
             </div>
-  
-            <div>
-              <button
-                type="submit"
-                className="w-full border border-blue-500 dark:border-red-500 text-sky-500 dark:text-white font-semibold py-2 px-4 rounded-md shadow-md hover:bg-blue-400 hover:text-black dark:hover:bg-blue-500 z-10"
-              >
-                Submit
-              </button>
-            </div>
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold py-3 px-4 rounded-xl shadow-md hover:from-blue-500 hover:to-purple-500 transition-all text-base mt-2"
+            >
+              Send Message
+            </button>
           </form>
         </div>
       </div>
     </div>
-  </div>
-  
   );
 };
 

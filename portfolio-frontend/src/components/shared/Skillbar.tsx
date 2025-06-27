@@ -6,7 +6,7 @@ import { getMySkills } from "@/service/skills";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Spinner from "./Spinner";
-
+import { Zap, Code, Database, Palette, Server } from "lucide-react";
 
 export interface TSkills {
   _id: string,
@@ -33,83 +33,126 @@ const TechStack = () => {
 
     fetchSkills();
   }, []);
+
   if (error) {
     return (
-      <div className="text-center text-red-500 text-xl font-semibold">
-        ⚠️ Failed .
-      </div>
+      <section className="section-padding bg-slate-900/30">
+        <div className="container-custom text-center">
+          <div className="p-8 rounded-2xl bg-red-500/10 border border-red-500/20">
+            <p className="text-red-400 text-lg font-medium">
+              ⚠️ Failed to load skills. Please try again later.
+            </p>
+          </div>
+        </div>
+      </section>
     );
   }
 
+ 
+
   return (
-    <div className="  min-h-[70vh]  flex flex-col items-center justify-center text-white dark:text-white px-5"
-    // style={{ backgroundImage: "url('https://png.pngtree.com/thumb_back/fh260/background/20210324/pngtree-abstract-portfolio-pink-memphis-playful-image_593414.jpg')",backgroundSize:"cover" ,backgroundRepeat:"no-repeat", }}
-    >
-      <motion.h1
-        className="text-4xl text-[#17a0ef] font-bold mb-3"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        My Tech Stack
-      </motion.h1>
-      <motion.p
-        className="text-gray-600 dark:text-gray-400 text-lg mb-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3 }}
-      >
-        I CONSTANTLY TRY TO IMPROVE 🚀
-      </motion.p>
-      {loading ? (
-        <Spinner />
-      ) : (
-        <motion.div
-          className="grid mb-5 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: { opacity: 0, scale: 0.8 },
-            visible: { opacity: 1, scale: 1, transition: { staggerChildren: 0.1 } },
-          }}
-        >
-          {skills.map((tech, index) => (
-            <motion.div
-              key={index}
-              className="flex items-center space-x-3 p-3 bg-slate-100/15 dark:bg-gray-800 rounded-lg shadow-xl hover:scale-105 transition-transform"
-              whileHover={{ scale: 1.1 }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
-            >
-              <Image
-                src={tech.icon[0]}
-                alt={tech.name}
-                width={40}
-                height={40}
-                className="rounded-full"
-              />
-              <span className="text-[#8dc5e3] dark:text-white text-lg font-semibold">
-                {tech.name}
-              </span>
-            </motion.div>
-          ))}
-        </motion.div>
-      )}
-      <div className="w-full h-full absolute">
-        <div className="w-full h-full z-[-10] opacity-30 absolute flex items-center justify-center bg-cover">
-          <video
-            className="w-full h-auto"
-            preload="false"
-            playsInline
-            loop
-            muted
-            autoPlay
-            src="/cards-video.webm"
-          />
-        </div>
+    <section className="section-padding bg-slate-900/30 relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_50%)]" />
+      
+      {/* Background Video */}
+      <div className="absolute inset-0 opacity-10">
+        <video
+          className="w-full h-full object-cover"
+          preload="false"
+          playsInline
+          loop
+          muted
+          autoPlay
+          src="/cards-video.webm"
+        />
       </div>
-    </div>
+      
+      <div className="container-custom relative z-10">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <div className="p-3 rounded-full bg-blue-500/10 border border-blue-500/20">
+              <Zap className="text-blue-400 text-2xl" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold gradient-text">
+              Technical Skills
+            </h2>
+          </div>
+          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+            Continuously expanding my technical expertise with modern technologies and best practices.
+          </p>
+        </motion.div>
+
+        {loading ? (
+          <div className="flex justify-center py-16">
+            <Spinner />
+          </div>
+        ) : (
+          <>
+            {/* Skills Grid */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 mb-12"
+            >
+              {skills.map((tech, index) => (
+                <motion.div
+                  key={tech._id}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
+                  viewport={{ once: true }}
+                  whileHover={{ 
+                    scale: 1.05,
+                    y: -5,
+                    transition: { duration: 0.2 }
+                  }}
+                  className="group"
+                >
+                  <div className="glass-effect p-6 rounded-2xl text-center card-hover h-full">
+                    <div className="flex flex-col items-center space-y-4">
+                      <div className="relative">
+                        <Image
+                          src={tech.icon[0]}
+                          alt={tech.name}
+                          width={48}
+                          height={48}
+                          className="rounded-xl group-hover:scale-110 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      </div>
+                      <span className="text-slate-200 font-medium text-sm group-hover:text-white transition-colors">
+                        {tech.name}
+                      </span>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* Skill Categories */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6"
+            >
+        
+            </motion.div>
+          </>
+        )}
+      </div>
+    </section>
   );
 };
 

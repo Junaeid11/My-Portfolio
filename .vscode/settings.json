@@ -1,0 +1,14 @@
+{
+    "workbench.settings.useSplitJSON": false,
+    "json.schemas": [
+
+
+    ],
+    "json.format.enable": true,
+    "terminal.integrated.automationProfile.linux": {
+
+    },
+    "terminal.integrated.automationProfile.windows": {
+        
+    }
+}

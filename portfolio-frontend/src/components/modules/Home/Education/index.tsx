@@ -3,22 +3,20 @@
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { FaGraduationCap, FaBook } from "react-icons/fa";
+import { FaGraduationCap, FaBook, FaAward } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const MyEducation = () => {
   useEffect(() => {
-    // Initialize AOS after the DOM is ready
     AOS.init({
-      duration: 600,
+      duration: 800,
       once: true,
       easing: "ease-in-out",
     });
 
-    // Update AOS on resize and scroll (to ensure it works during scrolling)
     window.addEventListener("resize", AOS.refresh);
     window.addEventListener("scroll", AOS.refresh);
 
-    // Clean up event listeners on component unmount
     return () => {
       window.removeEventListener("resize", AOS.refresh);
       window.removeEventListener("scroll", AOS.refresh);
@@ -31,6 +29,7 @@ const MyEducation = () => {
       institution: "Chattogram Polytechnic Institute, Chattogram",
       duration: "August 2020 - January 2025",
       result: "3.16",
+      description: "Comprehensive study of power systems, electrical engineering principles, and industrial applications.",
       align: "left",
     },
   ];
@@ -40,98 +39,159 @@ const MyEducation = () => {
       title: "Complete Web Development",
       institution: "Programming Hero",
       duration: "January 2024 - October 2024",
+      description: "Full-stack web development course covering modern technologies and best practices.",
       align: "right",
     },
     {
       title: "Industrial Attachment",
       institution: "1320 MW SS POWER PLANT, Banshkhali, Chattogram",
       duration: "September 2024 - December 2024",
+      description: "Hands-on experience in power plant operations, maintenance, and industrial processes.",
       align: "left",
     },
     {
       title: "Next Level Web Development",
       institution: "Programming Hero",
       duration: "November 2024 - March 2025",
+      description: "Advanced web development techniques, modern frameworks, and industry-standard practices.",
       align: "right",
     },
   ];
 
   return (
-    <div className="min-h-[80vh] dark:bg-black p-10">
-      <div className="flex items-center justify-center gap-3 mb-6">
-        <FaGraduationCap className="text-[#1e17ef] text-4xl" />
-        <h1 className="text-3xl md:text-4xl text-center font-extrabold text-[#17a0ef]">
-          My Education
-        </h1>
-      </div>
-
-      <div className="container mx-auto px-5 py-10">
-        <h2
-          data-aos="fade-up"
-          className="text-2xl font-semibold text-center text-[#94cae8] pb-6"
+    <section className="section-padding bg-slate-900/50 relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(59,130,246,0.05),transparent_50%)]" />
+      
+      <div className="container-custom relative z-10">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
         >
-          Academic Educational Qualification
-        </h2>
-
-        {/* Education Section */}
-        <div className="relative">
-          {educationData.map((edu, index) => (
-            <div
-              key={index}
-              data-aos="fade-up"
-              className={`flex gap-10 ${edu.align === "right" ? "md:flex-row-reverse" : "md:flex-row"} flex-col-reverse`}
-            >
-              <div
-                className={`w-full md:w-1/2 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all transform hover:scale-105 bg-[#1a1a1a] dark:bg-gray-800`}
-              >
-                <h3 className="text-xl font-semibold text-[#17a0ef]">{edu.title}</h3>
-                <h4 className="text-gray-400">{edu.institution}</h4>
-                <p className="text-gray-300">{edu.duration}</p>
-                <p className="text-gray-300">
-                  Result: <span className="text-[#17a0ef] font-bold">{edu.result}</span>
-                </p>
-              </div>
-              <div className="flex flex-col items-center">
-                <FaGraduationCap className="text-[#1b17ef] text-2xl" />
-                <div className="h-20 w-[5px] bg-[#1734ef]"></div>
-              </div>
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <div className="p-3 rounded-full bg-blue-500/10 border border-blue-500/20">
+              <FaGraduationCap className="text-blue-400 text-2xl" />
             </div>
-          ))}
-        </div>
+            <h2 className="text-3xl md:text-4xl font-bold gradient-text">
+              Education & Experience
+            </h2>
+          </div>
+          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+            My academic journey and professional development through education and specialized training programs.
+          </p>
+        </motion.div>
 
-        {/* Courses Section */}
-        <div className="mt-16">
-          <h2
-            data-aos="fade-up"
-            className="text-2xl font-semibold text-center text-[#94cae8] pb-6"
+        {/* Academic Education */}
+        <div className="mb-20">
+          <motion.h3
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-2xl font-semibold text-center text-slate-200 mb-12"
           >
-            Courses
-          </h2>
+            Academic Qualification
+          </motion.h3>
+
+          <div className="relative">
+            {educationData.map((edu, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: edu.align === "right" ? 50 : -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                viewport={{ once: true }}
+                className={`flex gap-8 lg:gap-12 ${edu.align === "right" ? "md:flex-row-reverse" : "md:flex-row"} flex-col-reverse items-center mb-12`}
+              >
+                {/* Content Card */}
+                <div className="w-full md:w-1/2">
+                  <div className="glass-effect p-8 rounded-2xl card-hover">
+                    <div className="flex items-center gap-3 mb-4">
+                      <FaAward className="text-blue-400 text-xl" />
+                      <h4 className="text-xl font-semibold text-white">{edu.title}</h4>
+                    </div>
+                    <p className="text-slate-300 font-medium mb-2">{edu.institution}</p>
+                    <p className="text-slate-400 mb-3">{edu.duration}</p>
+                    <p className="text-slate-400 mb-4 leading-relaxed">{edu.description}</p>
+                    <div className="flex items-center gap-2">
+                      <span className="text-slate-400">GPA:</span>
+                      <span className="text-blue-400 font-bold text-lg">{edu.result}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Timeline Connector */}
+                <div className="flex flex-col items-center">
+                  <div className="p-4 rounded-full bg-blue-500/10 border-2 border-blue-500/30">
+                    <FaGraduationCap className="text-blue-400 text-2xl" />
+                  </div>
+                  <div className="h-24 w-1 bg-gradient-to-b from-blue-500/50 to-transparent"></div>
+                </div>
+
+                {/* Empty space for alignment */}
+                <div className="w-full md:w-1/2"></div>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
-        <div className="relative">
-          {courseData.map((course, index) => (
-            <div
-              key={index}
-              data-aos="fade-up"
-              className={`flex gap-10 mt-10 ${course.align === "right" ? "md:flex-row-reverse" : "md:flex-row"} flex-col-reverse`}
-            >
-              <div
-                className={`w-full md:w-1/2 bg-[#1a1a1a] dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all transform hover:scale-105`}
+        {/* Professional Courses */}
+        <div>
+          <motion.h3
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-2xl font-semibold text-center text-slate-200 mb-12"
+          >
+            Professional Development
+          </motion.h3>
+
+          <div className="relative">
+            {courseData.map((course, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: course.align === "right" ? 50 : -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 + index * 0.1 }}
+                viewport={{ once: true }}
+                className={`flex gap-8 lg:gap-12 ${course.align === "right" ? "md:flex-row-reverse" : "md:flex-row"} flex-col-reverse items-center mb-12`}
               >
-                <h3 className="text-xl font-semibold text-[#17a0ef]">{course.title}</h3>
-                <h4 className="text-gray-400">{course.institution}</h4>
-                <p className="text-gray-300">{course.duration}</p>
-              </div>
-              <div className="flex flex-col items-center">
-                <FaBook className="text-[#1b17ef] text-2xl" />
-                <div className="h-20 w-[5px] bg-[#1b17ef]"></div>
-              </div>
-            </div>
-          ))}
+                {/* Content Card */}
+                <div className="w-full md:w-1/2">
+                  <div className="glass-effect p-8 rounded-2xl card-hover">
+                    <div className="flex items-center gap-3 mb-4">
+                      <FaBook className="text-purple-400 text-xl" />
+                      <h4 className="text-xl font-semibold text-white">{course.title}</h4>
+                    </div>
+                    <p className="text-slate-300 font-medium mb-2">{course.institution}</p>
+                    <p className="text-slate-400 mb-3">{course.duration}</p>
+                    <p className="text-slate-400 leading-relaxed">{course.description}</p>
+                  </div>
+                </div>
+
+                {/* Timeline Connector */}
+                <div className="flex flex-col items-center">
+                  <div className="p-4 rounded-full bg-purple-500/10 border-2 border-purple-500/30">
+                    <FaBook className="text-purple-400 text-2xl" />
+                  </div>
+                  {index < courseData.length - 1 && (
+                    <div className="h-24 w-1 bg-gradient-to-b from-purple-500/50 to-transparent"></div>
+                  )}
+                </div>
+
+                {/* Empty space for alignment */}
+                <div className="w-full md:w-1/2"></div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

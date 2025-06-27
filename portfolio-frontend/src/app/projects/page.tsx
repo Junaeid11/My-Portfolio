@@ -12,6 +12,7 @@ const Projects = async () => {
 
   if (!projects) {
     return <Spinner/>}; 
+    
 
   return (
     <div className="container mt-10 mx-auto py-10">
